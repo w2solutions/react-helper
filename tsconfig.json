@@ -1,0 +1,11 @@
+{
+  "extends": "./tsconfig.build.json",
+
+  "compilerOptions": {
+    "baseUrl": "./packages",
+    "paths": {
+      "@w2solutions/react-xauth": ["react-auth/src"],
+      "@w2solutions/*": ["*/src"]
+    }
+  }
+}

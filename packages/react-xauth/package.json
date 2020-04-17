@@ -1,0 +1,45 @@
+{
+  "name": "@w2solutions/react-xauth",
+  "version": "0.0.1",
+  "description": "react authentication helper package",
+  "keywords": [
+    "react",
+    "auth",
+    "util"
+  ],
+  "author": "Jürgen Wagner <juergen@w2solutions.at>",
+  "homepage": "https://github.com/w2solutions/react-helper#readme",
+  "license": "MIT",
+  "main": "dist/index.js",
+  "directories": {
+    "lib": "dist"
+  },
+  "files": [
+    "dist"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "ssh://git@github.com/w2solutions/react-helper.git",
+    "directory": "packages/react-xauth"
+  },
+  "publishConfig": {
+    "registry":"https://npm.pkg.github.com/"
+  },
+  "scripts": {
+    "clean": "rimraf dist",
+    "prebuild": "npm run clean",
+    "build": "tsc -p tsconfig.build.json",
+    "build:watch": "tsc -p tsconfig.build.json --watch"
+  },
+  "bugs": {
+    "url": "https://github.com/w2solutions/react-helper/issues"
+  },
+  "devDependencies": {
+    "prettier": "^2.0.4",
+    "rimraf": "^3.0.2",
+    "typescript": "^3.8.3"
+  },
+  "peerDependencies": {
+    "react": ">=15"
+  }
+}
