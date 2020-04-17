@@ -33,6 +33,8 @@ jobs:
       - name: Install
         run: yarn install
       # Define ${CURRENT_VERSION}
+      - name: Build
+        run: yarn lerna run build
       - name: Set Current Version
         shell: bash -ex {0}
         run: |
