@@ -1,10 +1,10 @@
 {
-  "name": "@w2solutions/react-xauth",
-  "version": "0.0.3",
-  "description": "react authentication helper package",
+  "name": "@w2solutions/react-hooks",
+  "version": "0.0.1",
+  "description": "react hooks helper package",
   "keywords": [
     "react",
-    "auth",
+    "hooks",
     "util"
   ],
   "author": "Jürgen Wagner <juergen@w2solutions.at>",
@@ -20,10 +20,10 @@
   "repository": {
     "type": "git",
     "url": "ssh://git@github.com/w2solutions/react-helper.git",
-    "directory": "packages/react-xauth"
+    "directory": "packages/react-hooks"
   },
   "publishConfig": {
-    "registry":"https://npm.pkg.github.com/"
+    "registry": "https://npm.pkg.github.com/"
   },
   "scripts": {
     "clean": "rimraf dist",
@@ -40,5 +40,8 @@
   },
   "peerDependencies": {
     "react": ">=15"
+  },
+  "dependencies": {
+    "ramda": "^0.27.0"
   }
 }
