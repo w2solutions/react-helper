@@ -1,6 +1,6 @@
 {
   "name": "@w2solutions/react-xauth",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "react authentication helper package",
   "keywords": [
     "react",
@@ -35,7 +35,6 @@
     "url": "https://github.com/w2solutions/react-helper/issues"
   },
   "devDependencies": {
-    "prettier": "^2.0.4",
     "rimraf": "^3.0.2",
     "typescript": "^3.8.3"
   },
