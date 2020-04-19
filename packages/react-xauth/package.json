@@ -1,6 +1,6 @@
 {
   "name": "@w2solutions/react-xauth",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "description": "react authentication helper package",
   "keywords": [
     "react",
