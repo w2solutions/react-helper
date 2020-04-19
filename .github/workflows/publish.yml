@@ -8,8 +8,8 @@ on:
 env:
   CI: true
 jobs:
-  publish:
-    name: Publish
+  build:
+    name: Build
     runs-on: ubuntu-18.04
     steps:
       - name: Checkout
@@ -31,21 +31,57 @@ jobs:
         run: yarn install
 
       - name: Build
-        run: yarn build
+        run: yarn run build
 
       - name: Release
-        run: yarn version --yes
+        run: yarn run versionup --yes
 
-      - name: Publish GHP
+  publish-gpr:
+    needs: build
+    runs-on: ubuntu-18.04
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Setup Node ${{ matrix.node_version }}
+        uses: actions/setup-node@v1
+        with:
+          node_version: 12
+          registry-url: https://npm.pkg.github.com
+
+      - name: Install
+        run: yarn install
+
+      - name: Build
+        run: yarn run build
+
+      - name: Publish GPR
         run: |
-          yarn publish --yes
+          yarn run publish --yes --registry https://npm.pkg.github.com
         env:
-            GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-            NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+  publish-npm:
+    needs: build
+    runs-on: ubuntu-18.04
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Setup Node ${{ matrix.node_version }}
+        uses: actions/setup-node@v1
+        with:
+          node_version: 12
+          registry-url: https://registry.npmjs.org
+
+      - name: Install
+        run: yarn install
+
+      - name: Build
+        run: yarn run build
       
       - name: Publish NPM
         run: |
-          yarn publish --yes --registry https://registry.npmjs.org/
+          yarn run publish --yes --registry https://registry.npmjs.org
         env:
-            GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-            NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}

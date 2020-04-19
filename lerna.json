@@ -3,12 +3,10 @@
   "useWorkspaces": true,
   "version": "independent",
   "command": {
-    "publish": {
-      "registry": "https://npm.pkg.github.com"
-    },
     "version": {
       "allowBranch": ["master"],
-      "conventionalCommits": true
+      "conventionalCommits": true,
+      "message": "chore(release): publish %s"
     }  
   }
 }

@@ -1,7 +1,7 @@
 {
   "scripts": {
     "build": "lerna run build",
-    "version": "lerna version",
+    "versionup": "lerna version",
     "publish": "lerna publish from-package",
     "format": "prettier --write 'packages/*/!((dist)|(node_modules))/**/*.(ts|tsx)'"
   },

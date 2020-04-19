@@ -21,7 +21,7 @@
     "directory": "packages/react-xauth"
   },
   "publishConfig": {
-    "registry": "https://npm.pkg.github.com/"
+    "access": "public"
   },
   "scripts": {
     "clean": "rimraf dist",
