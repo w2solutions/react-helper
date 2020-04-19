@@ -1,24 +1,20 @@
 {
   "scripts": {
     "build": "lerna run build",
-    "release": "lerna publish from-package",
-    "format": "prettier --write 'packages/*/!((dist)|(node_modules))/**/*.(ts|tsx)'",
-    "versionup": "lerna version --conventional-commits --no-git-tag-version",
-    "versionup:patch": "lerna version patch --conventional-commits --no-git-tag-version",
-    "versionup:minor": "lerna version minor --conventional-commits --no-git-tag-version",
-    "versionup:major": "lerna version major --conventional-commits --no-git-tag-version",
-    "postversionup": "npm run commit-version",
-    "postversionup:patch": "npm run commit-version",
-    "postversionup:minor": "npm run commit-version",
-    "postversionup:major": "npm run commit-version",
-    "commit-version": "git add . && git commit -m \"chore(release): publish `node -p 'require(\"./lerna.json\").version'`\""
+    "version": "lerna version",
+    "publish": "lerna publish from-package",
+    "format": "prettier --write 'packages/*/!((dist)|(node_modules))/**/*.(ts|tsx)'"
   },
   "private": true,
   "devDependencies": {
+    "cz-lerna-changelog": "^2.0.2",
     "lerna": "^3.15.0"
   },
   "dependencies": {
+    "@commitlint/cli": "^8.3.5",
+    "@commitlint/config-conventional": "^8.3.4",
     "@types/react": "^16.9.34",
+    "commitizen": "^4.0.4",
     "husky": "^4.2.5",
     "lint-staged": "^10.1.6",
     "prettier": "^2.0.4",
@@ -31,7 +27,8 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "lint-staged"
+      "pre-commit": "lint-staged",
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
     }
   },
   "lint-staged": {
@@ -42,5 +39,10 @@
     "yarn.lock": [
       "git rm --cached"
     ]
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-lerna-changelog"
+    }
   }
 }

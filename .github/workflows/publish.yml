@@ -1,10 +1,9 @@
 name: publish
 
 on:
-  release:
-    types: [created]
-
-      # if: tag =~ ^v[0-9]
+  push:
+    branches:
+      - master
 
 env:
   CI: true
@@ -19,8 +18,6 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node_version: 12
-          registry-url: 'https://npm.pkg.github.com'
-
 
       - name: Git Identity
         run: |
@@ -30,79 +27,25 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-
       - name: Install
         run: yarn install
-      # Define ${CURRENT_VERSION}
-
 
       - name: Build
-        run: yarn lerna run build
+        run: yarn build
 
+      - name: Release
+        run: yarn version --yes
 
-      - name: Set Current Version
-        shell: bash -ex {0}
+      - name: Publish GHP
         run: |
-          CURRENT_VERSION=$(node -p 'require("./lerna.json").version')
-          echo "::set-env name=CURRENT_VERSION::${CURRENT_VERSION}"
-
-
-      - name: Tag Check
-        id: tag_check
-        shell: bash -ex {0}
+          yarn publish --yes
+        env:
+            GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+            NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      
+      - name: Publish NPM
         run: |
-          GET_API_URL="https://api.github.com/repos/${GITHUB_REPOSITORY}/git/ref/tags/v${CURRENT_VERSION}"
-          http_status_code=$(curl -LI $GET_API_URL -o /dev/null -w '%{http_code}\n' -s \
-            -H "Authorization: token ${GITHUB_TOKEN}")
-          if [ "$http_status_code" -ne "404" ] ; then
-            echo "::set-output name=exists_tag::true"
-          else
-            echo "::set-output name=exists_tag::false"
-          fi
+          yarn publish --yes --registry https://registry.npmjs.org/
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-
-      - name: Create Git Tag
-        if: steps.tag_check.outputs.exists_tag == 'false'
-        uses: azu/action-package-version-to-git-tag@v1
-        with:
-          version: ${{ env.CURRENT_VERSION }}
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          github_repo: ${{ github.repository }}
-          git_commit_sha: ${{ github.sha }}
-          git_tag_prefix: "v"
-
-
-      - name: Create Release
-        id: create_release
-        if: steps.tag_check.outputs.exists_tag == 'false' && github.event.pull_request.merged == true
-        uses: actions/create-release@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          tag_name: v${{ env.CURRENT_VERSION }}
-          # Copy Pull Request's tile and body to Release Note
-          release_name: ${{ github.event.pull_request.title }}
-          body: |
-            ${{ github.event.pull_request.body }}
-          draft: false
-          prerelease: false
-      - name: Publish
-        if: steps.tag_check.outputs.exists_tag == 'false'
-        run: |
-          yarn lerna publish from-package --yes
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      - uses: actions/github-script@0.9.0
-        if: github.event.pull_request 
-        with:
-          github-token: ${{secrets.GITHUB_TOKEN}}
-          script: |
-            github.issues.createComment({
-              issue_number: context.issue.number,
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              body: 'https://github.com/${{ github.repository }}/releases/tag/v${{ env.CURRENT_VERSION }} is released 🎉'
-            })
+            GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+            NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }
