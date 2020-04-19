@@ -1,6 +1,6 @@
 {
   "name": "@w2solutions/react-xauth",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "react authentication helper package",
   "keywords": [
     "react",
@@ -21,7 +21,7 @@
     "directory": "packages/react-xauth"
   },
   "publishConfig": {
-    "registry":"https://npm.pkg.github.com/"
+    "registry": "https://npm.pkg.github.com/"
   },
   "scripts": {
     "clean": "rimraf dist",
