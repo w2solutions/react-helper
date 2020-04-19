@@ -1,6 +1,6 @@
 {
   "name": "@w2solutions/react-hooks",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "react hooks helper package",
   "keywords": [
     "react",
@@ -11,6 +11,7 @@
   "homepage": "https://github.com/w2solutions/react-helper#readme",
   "license": "MIT",
   "main": "dist/index.js",
+  "typings": "dist/index.d.ts",
   "files": [
     "dist/**/*"
   ],

@@ -1,14 +1,8 @@
 {
-  "name": "root",
-  "private": true,
-  "devDependencies": {
-    "lerna": "^3.15.0"
-  },
-  "dependencies": {
-    "prettier": "^2.0.4",
-    "react": "^16.13.1"
-  },
   "scripts": {
+    "build": "lerna run build",
+    "release": "lerna publish from-package",
+    "format": "prettier --write 'packages/*/!((dist)|(node_modules))/**/*.(ts|tsx)'",
     "versionup": "lerna version --conventional-commits --no-git-tag-version",
     "versionup:patch": "lerna version patch --conventional-commits --no-git-tag-version",
     "versionup:minor": "lerna version minor --conventional-commits --no-git-tag-version",
@@ -17,12 +11,36 @@
     "postversionup:patch": "npm run commit-version",
     "postversionup:minor": "npm run commit-version",
     "postversionup:major": "npm run commit-version",
-    "commit-version": "git add . && git commit -m \"chore(release): publish `node -p 'require(\"./lerna.json\").version'`\"",
-    "release": "lerna publish from-package"
+    "commit-version": "git add . && git commit -m \"chore(release): publish `node -p 'require(\"./lerna.json\").version'`\""
+  },
+  "private": true,
+  "devDependencies": {
+    "lerna": "^3.15.0"
+  },
+  "dependencies": {
+    "@types/react": "^16.9.34",
+    "husky": "^4.2.5",
+    "lint-staged": "^10.1.6",
+    "prettier": "^2.0.4",
+    "react": "^16.13.1"
   },
   "workspaces": {
     "packages": [
       "packages/*"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{js,md,css,html}": [
+      "prettier --write",
+      "git add"
+    ],
+    "yarn.lock": [
+      "git rm --cached"
     ]
   }
 }

@@ -4,7 +4,8 @@
   "compilerOptions": {
     "baseUrl": "./packages",
     "paths": {
-      "@w2solutions/react-xauth": ["react-auth/src"],
+      "@w2solutions/react-xauth": ["react-xauth/src"],
+      "@w2solutions/react-hooks": ["react-hooks/src"],
       "@w2solutions/*": ["*/src"]
     }
   }

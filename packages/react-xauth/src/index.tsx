@@ -4,10 +4,10 @@ import React, {
   useEffect,
   useRef,
   useCallback,
-} from "react";
+} from 'react';
 
-import authReducer from "./store/reducer";
-import { initialize, setUser, reset } from "./store/actions";
+import authReducer from './store/reducer';
+import { initialize, setUser, reset } from './store/actions';
 
 export interface DefaultUser {
   id: string;
@@ -15,8 +15,8 @@ export interface DefaultUser {
 }
 
 export enum DefaultUserRole {
-  ADMIN = "Admin",
-  USER = "User",
+  ADMIN = 'Admin',
+  USER = 'User',
 }
 
 export interface XAuthState {
@@ -39,17 +39,17 @@ export const useXAuth = () => {
   return [state, rest] as [typeof state, typeof rest];
 };
 
-const initialAuthState: XAuthContextType["state"] = {
+const initialAuthState: XAuthContextType['state'] = {
   initialized: false,
   authenticated: true,
   user: null,
 };
 
-type InitFn = () => Promise<XAuthState["user"]> | XAuthState["user"];
+type InitFn = () => Promise<XAuthState['user']> | XAuthState['user'];
 type SignInFn = (
   username: string,
   password: string
-) => Promise<XAuthState["user"]> | XAuthState["user"];
+) => Promise<XAuthState['user']> | XAuthState['user'];
 type SignOutFn = () => Promise<void> | void;
 
 interface XAuthProviderProps {
