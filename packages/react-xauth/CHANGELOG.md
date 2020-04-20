@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 0.0.9 (2020-04-20)
+
+
+### Bug Fixes
+
+* add group support ([8f9f020](https://github.com/w2solutions/react-helper/commit/8f9f0207bdbabc38b8a5ff2c8f9cc693be68302b))
+
+
+
+
+
 ## 0.0.8 (2020-04-19)
 
 **Note:** Version bump only for package @w2solutions/react-xauth
