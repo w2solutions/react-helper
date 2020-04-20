@@ -1,11 +1,23 @@
-const namespace = 'XAUTH';
 
-export const INITIALIZE = `${namespace}/initialize`;
+export enum XAuthActionType {
+  INITIALIZE = 'XAUTH/initialize',
+  RESET = 'XAUTH/reset',
+  SET_USER = 'XAUTH/set_user'
+}
 
-export const RESET = `${namespace}/reset`;
 
-export const SET_USER = `${namespace}/set_user`;
+export interface DefaultUser {
+  id: string;
+  roles?: DefaultUserRole[];
+}
 
-// export const SIGN_IN = `${namespace}/sign_in`
+export enum DefaultUserRole {
+  ADMIN = 'Admin',
+  USER = 'User',
+}
 
-// export const SIGN_OUT = `${namespace}/sign_out`
+export interface XAuthState {
+  initialized: boolean;
+  authenticated: boolean;
+  user: DefaultUser | null;
+}

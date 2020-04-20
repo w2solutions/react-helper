@@ -1,11 +1,11 @@
-# `react-hooks`
+# `@w2solutions/react-hooks`
 
 > react hooks helper package
 
 ## Usage
 
 ```
-const reactXauth = require('react-hooks');
+const reactHooks = require('react-hooks');
 
 // TODO: DEMONSTRATE API
 ```

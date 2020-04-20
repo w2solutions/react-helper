@@ -37,6 +37,6 @@
     "typescript": "^3.8.3"
   },
   "peerDependencies": {
-    "react": ">=15"
+    "react": ">=16"
   }
 }

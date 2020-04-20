@@ -1,14 +1,14 @@
 import React, { CSSProperties } from 'react';
 import { useXAuth } from '..';
 
-interface AuthRequiredProps {
+interface XAuthRequiredProps {
   fallback?: React.ReactNode;
   children: React.ReactNode;
   className?: string;
   style?: CSSProperties;
 }
 
-export const AuthRequired: React.FC<AuthRequiredProps> = (props) => {
+export const XAuthRequired: React.FC<XAuthRequiredProps> = (props) => {
   const [state] = useXAuth();
 
   if (!state.initialized) {
@@ -22,4 +22,4 @@ export const AuthRequired: React.FC<AuthRequiredProps> = (props) => {
   return <>{props.children ?? null}</>;
 };
 
-export default AuthRequired;
+export default XAuthRequired;
