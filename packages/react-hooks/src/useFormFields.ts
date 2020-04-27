@@ -53,7 +53,7 @@ export const useFormFields = <T extends InitalValuesType, K extends keyof T>(
   const keys = Object.keys(initalValues) as K[];
   const onChange = useCallback(
     (evt: ChangeEvent<HTMLInputElement>) => {
-      const { name, value } = evt.currentTarget;
+      const { name, value } = evt.target;
       if (!(name in initalValues)) {
         throw new Error(
           `Field name "${name}" is not a valid value. Must be one of [${keys}].`
