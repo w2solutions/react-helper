@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 0.0.11 (2020-06-05)
+
+
+### Bug Fixes
+
+* improved useAsync parameter ts type ([f202c9e](https://github.com/w2solutions/react-helper/commit/f202c9e0ab50f2768c9ddecce7f37528df240175))
+
+
+
+
+
 ## 0.0.10 (2020-06-05)
 
 **Note:** Version bump only for package @w2solutions/react-hooks
