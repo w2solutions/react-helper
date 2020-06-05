@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 0.0.14 (2020-06-05)
+
+
+### Bug Fixes
+
+* fixed useAsync loading ([6a85a39](https://github.com/w2solutions/react-helper/commit/6a85a39a80bd32c89d368234451ab33d48d01ffe))
+
+
+
+
+
 ## 0.0.13 (2020-06-05)
 
 
