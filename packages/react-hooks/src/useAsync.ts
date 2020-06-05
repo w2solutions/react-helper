@@ -8,7 +8,7 @@ interface UseAsyncState<T> {
 }
 
 export const useAsync = <A extends any[], R>(
-  fn: (...args: A) => Promise<R>
+  fn: (...args: A) => (Promise<R> | R)
 ) => {
   const [params, setParams] = useState<A>(null);
   const [state, dispatch] = useReducer(
