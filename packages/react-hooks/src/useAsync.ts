@@ -59,11 +59,13 @@ const asyncReducer = <T>(
       return {
         ...state,
         error: null,
+        loading: false,
         data: action.payload.data,
       };
     case AsyncActionType.FAILED:
       return {
         ...state,
+        loading: false,
         error: action.payload.error,
       };
     default:
