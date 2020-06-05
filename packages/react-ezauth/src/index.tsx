@@ -1,7 +1,7 @@
 
 export * from './hooks'
 export * from './components'
-export * from './XAuthContext'
+export * from './EzAuthContext'
 export * from './types'
 
 export interface DefaultUser {

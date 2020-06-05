@@ -5,41 +5,23 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ## 0.0.11 (2020-05-04)
 
-**Note:** Version bump only for package @w2solutions/react-xauth
-
-
-
-
+**Note:** Version bump only for package @w2solutions/react-ezauth
 
 ## 0.0.10 (2020-04-27)
 
-
 ### Bug Fixes
 
-* fixed hooks exports ([a0085e8](https://github.com/w2solutions/react-helper/commit/a0085e865c5ca3054a1330cf9cadc39d37d20423))
-
-
-
-
+- fixed hooks exports ([a0085e8](https://github.com/w2solutions/react-helper/commit/a0085e865c5ca3054a1330cf9cadc39d37d20423))
 
 ## 0.0.9 (2020-04-20)
 
-
 ### Bug Fixes
 
-* add group support ([8f9f020](https://github.com/w2solutions/react-helper/commit/8f9f0207bdbabc38b8a5ff2c8f9cc693be68302b))
-
-
-
-
+- add group support ([8f9f020](https://github.com/w2solutions/react-helper/commit/8f9f0207bdbabc38b8a5ff2c8f9cc693be68302b))
 
 ## 0.0.8 (2020-04-19)
 
-**Note:** Version bump only for package @w2solutions/react-xauth
-
-
-
-
+**Note:** Version bump only for package @w2solutions/react-ezauth
 
 ## 0.0.7 (2020-04-19)
 

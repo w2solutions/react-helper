@@ -1,5 +1,5 @@
 {
-  "name": "@w2solutions/react-xauth",
+  "name": "@w2solutions/react-ezauth",
   "version": "0.0.11",
   "description": "react authentication helper package",
   "keywords": [
@@ -18,7 +18,7 @@
   "repository": {
     "type": "git",
     "url": "ssh://git@github.com/w2solutions/react-helper.git",
-    "directory": "packages/react-xauth"
+    "directory": "packages/react-ezauth"
   },
   "publishConfig": {
     "access": "public"

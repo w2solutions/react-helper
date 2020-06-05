@@ -1,26 +1,26 @@
-import { XAuthActionType } from './types';
-import { XAuthAction } from './actions';
-import { XAuthState } from '../types';
+import { EzAuthActionType } from './types';
+import { EzAuthAction } from './actions';
+import { EzAuthState } from '../types';
 
-const setCalculatedFields = (state: XAuthState): XAuthState => ({
+const setCalculatedFields = (state: EzAuthState): EzAuthState => ({
   ...state,
   authenticated: !!state.user,
 });
 
-const xauthReducer = (state: XAuthState, action: XAuthAction): XAuthState => {
+const ezAuthReducer = (state: EzAuthState, action: EzAuthAction): EzAuthState => {
   switch (action.type) {
-    case XAuthActionType.INITIALIZE:
+    case EzAuthActionType.INITIALIZE:
       return setCalculatedFields({
         ...state,
         initialized: true,
         user: action.payload.user,
       });
-    case XAuthActionType.SET_USER:
+    case EzAuthActionType.SET_USER:
       return setCalculatedFields({
         ...state,
         user: action.payload.user,
       });
-    case XAuthActionType.RESET:
+    case EzAuthActionType.RESET:
       return setCalculatedFields({
         ...state,
         user: null,
@@ -30,4 +30,4 @@ const xauthReducer = (state: XAuthState, action: XAuthAction): XAuthState => {
   }
 };
 
-export default xauthReducer;
+export default ezAuthReducer;

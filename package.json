@@ -3,7 +3,8 @@
     "build": "lerna run build",
     "versionup": "lerna version",
     "publish": "lerna publish from-package",
-    "format": "prettier --write 'packages/*/!((dist)|(node_modules))/**/*.(ts|tsx)'"
+    "format": "prettier --write 'packages/*/!((dist)|(node_modules))/**/*.(ts|tsx)'",
+    "commit": "yarn git-cz"
   },
   "private": true,
   "devDependencies": {

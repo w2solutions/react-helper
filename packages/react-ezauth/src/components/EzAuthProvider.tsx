@@ -1,25 +1,25 @@
 import React, { useReducer, useRef, useEffect, useCallback } from 'react'
 
 ;
-import { InitFn, SignInFn, SignOutFn, XAuthContextType, XAuthContext } from '../XAuthContext';
-import xauthReducer from '../store/reducer';
+import { InitFn, SignInFn, SignOutFn, EzAuthContextType, EzAuthContext } from '../EzAuthContext';
+import ezAuthReducer from '../store/reducer';
 import { initialize, setUser, reset } from '../store/actions';
 
-interface XAuthProviderProps {
+interface EzAuthProviderProps {
   init?: InitFn;
   signIn?: SignInFn;
   signOut?: SignOutFn;
 }
 
 
-const initialAuthState: XAuthContextType['state'] = {
+const initialAuthState: EzAuthContextType['state'] = {
   initialized: false,
   authenticated: true,
   user: null,
 };
 
-export const XAuthProvider: React.FC<XAuthProviderProps> = (props) => {
-  const [state, dispatch] = useReducer(xauthReducer, initialAuthState);
+export const EzAuthProvider: React.FC<EzAuthProviderProps> = (props) => {
+  const [state, dispatch] = useReducer(ezAuthReducer, initialAuthState);
 
   const functionRef = useRef({
     init: props.init || (() => null),
@@ -50,8 +50,8 @@ export const XAuthProvider: React.FC<XAuthProviderProps> = (props) => {
   }, [props.signOut, dispatch]);
 
   return (
-    <XAuthContext.Provider value={{ state, signIn, signOut }}>
+    <EzAuthContext.Provider value={{ state, signIn, signOut }}>
       {props.children}
-    </XAuthContext.Provider>
+    </EzAuthContext.Provider>
   );
 };

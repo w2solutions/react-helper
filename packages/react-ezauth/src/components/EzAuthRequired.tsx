@@ -1,8 +1,8 @@
 import React, { CSSProperties } from 'react';
-import { useXAuth, DefaultUserRole } from '..';
-import { useXAuthUserHasRoles } from '../hooks';
+import { useEzAuth, DefaultUserRole } from '..';
+import { useEzAuthUserHasRoles } from '../hooks';
 
-interface XAuthRequiredProps {
+interface EzAuthRequiredProps {
   fallback?: React.ReactNode;
   roles?: DefaultUserRole | DefaultUserRole[]
   children: React.ReactNode;
@@ -10,10 +10,10 @@ interface XAuthRequiredProps {
   style?: CSSProperties;
 }
 
-export const XAuthRequired: React.FC<XAuthRequiredProps> = (props) => {
-  const [state] = useXAuth();
+export const EzAuthRequired: React.FC<EzAuthRequiredProps> = (props) => {
+  const [state] = useEzAuth();
 
-  const hasRole = useXAuthUserHasRoles(props.roles ?? [])
+  const hasRole = useEzAuthUserHasRoles(props.roles ?? [])
 
   if (!state.initialized) {
     return null;
@@ -29,6 +29,6 @@ export const XAuthRequired: React.FC<XAuthRequiredProps> = (props) => {
   return <>{props.children ?? null}</>;
 };
 
-export default XAuthRequired;
+export default EzAuthRequired;
 
 

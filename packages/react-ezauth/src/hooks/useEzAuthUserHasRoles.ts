@@ -1,8 +1,8 @@
-import { useXAuth } from "./useXAuth"
+import { useEzAuth } from "./useEzAuth"
 import { DefaultUserRole } from ".."
 
-export const useXAuthUserHasRoles = (roles: DefaultUserRole | DefaultUserRole[]) => {
-  const [state] = useXAuth()
+export const useEzAuthUserHasRoles = (roles: DefaultUserRole | DefaultUserRole[]) => {
+  const [state] = useEzAuth()
   if (!state.initialized) {
     return false
   }

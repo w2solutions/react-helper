@@ -1,11 +1,11 @@
-# `@w2solutions/react-xauth`
+# `@w2solutions/react-ezauth`
 
 > react authentication helper package
 
 ## Usage
 
 ```
-const reactXauth = require('react-xauth');
+const reactEzAuth = require('react-ezauth');
 
 // TODO: DEMONSTRATE API
 ```
@@ -15,9 +15,9 @@ const reactXauth = require('react-xauth');
 ```
 // AuthTypes.d.ts
 
-import "@w2solutions/react-xauth"
+import "@w2solutions/react-ezauth"
 
-declare module "@w2solutions/react-xauth" {
+declare module "@w2solutions/react-ezauth" {
   export interface DefaultUser {
     id: string;
     username: string;
