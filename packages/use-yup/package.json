@@ -35,17 +35,24 @@
   "author": "Jürgen Wagner",
   "module": "dist/use-yup.esm.js",
   "dependencies": {
-    "@types/react": "^16.9.41",
-    "@types/yup": "^0.29.3",
     "husky": "^4.2.5",
     "react": "^16.13.1"
   },
   "devDependencies": {
-    "@types/react-dom": "^16.9.8",
+    "@types/react": "^16.9.41",
+    "@types/yup": "^0.29.3",
     "react-dom": "^16.13.1",
     "tsdx": "^0.13.2",
     "tslib": "^2.0.0",
     "typescript": "^3.9.5",
     "yup": "^0.29.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "ssh://git@github.com/w2solutions/react-helper.git",
+    "directory": "packages/use-yup"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }
