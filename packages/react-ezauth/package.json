@@ -1,6 +1,6 @@
 {
   "name": "@w2solutions/react-ezauth",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "react authentication helper package",
   "keywords": [
     "react",
@@ -38,6 +38,5 @@
   },
   "peerDependencies": {
     "react": ">=16"
-  },
-  "dependencies": {}
+  }
 }

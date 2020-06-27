@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 0.2.1 (2020-06-27)
+
+
+### Bug Fixes
+
+* fixed build ([1c87845](https://github.com/w2solutions/react-helper/commit/1c878457b77a6ad034586491f44f08dcd74bfa15))
+
+
+
+
+
 # 0.2.0 (2020-06-27)
 
 
