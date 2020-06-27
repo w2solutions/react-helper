@@ -39,8 +39,5 @@
   "peerDependencies": {
     "react": ">=16"
   },
-  "dependencies": {
-    "@types/zen-observable": "^0.8.0",
-    "zen-observable": "^0.8.15"
-  }
+  "dependencies": {}
 }

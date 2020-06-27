@@ -1,9 +1,9 @@
 import { DefaultUser } from "..";
 
 export enum EzAuthEventType {
-  SIGNED_IN,
-  SIGNED_OUT,
-  INITIALIZED,
+  SIGNED_IN = 'SIGNED_IN',
+  SIGNED_OUT = 'SIGNED_OUT',
+  INITIALIZED = 'INITIALIZED',
 }
 
 interface SignedInEvent {
